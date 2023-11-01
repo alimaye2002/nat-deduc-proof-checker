@@ -1,0 +1,28 @@
+line            : ADMIT thm | PROVE thm | VAR stmt | QED EOL | COMMENT EOL | EOL
+________________________________
+
+thm             : VAR COLON hypo_list INFERS expr EOL
+                | RULE COLON hypo_list INFERS expr EOL
+                | VAR COLON INFERS expr EOL
+                | RULE COLON INFERS expr EOL
+
+hypo_list       : hypo_list COMMA VAR COLON expr | VAR COLON expr
+________________________________
+
+stmt            : SCOPE stmt | expr SQUARE_OPEN reason SQUARE_CLOSE
+
+reason          : ASSN | HYPO VAR
+                | BY VAR COMMA USING CURLY_OPEN assign_list CURLY_CLOSE
+                | BY RULE COMMA USING CURLY_OPEN assign_list CURLY_CLOSE
+
+assign_list     : assign_list COMMA VAR COLON VAR | VAR COLON VAR
+________________________________
+
+expr            : NOT expr | expr OR expr | expr AND expr | expr THEN expr | expr IFF expr 
+                | predicate | ROUND_OPEN expr ROUND_CLOSE
+
+predicate       : VAR
+                | VAR ROUND_OPEN var_list ROUND_OPEN
+                | QUANT VAR
+
+var_list        : var_list COMMA VAR | VAR

@@ -1,0 +1,17 @@
+Successfully cancelled:  1
+Successfully derived and admitted theorem T0
+
+Successfully cancelled:  2
+Successfully derived and admitted theorem T1
+
+Successfully cancelled:  1
+Successfully derived and admitted theorem T2
+
+Successfully cancelled:  2
+Successfully cancelled:  1
+Successfully derived and admitted theorem T3
+
+Successfully derived and admitted theorem T4
+
+[syntax error] in line #48: Admit T5: |- ∀x ∀y (R(x,y) > R(y,x))
+
